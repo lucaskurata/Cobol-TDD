@@ -29,9 +29,13 @@
       *-----------------------------------------------------------------
        WORKING-STORAGE                     SECTION.
        77  WRK-NOMES                           PIC X(12) VALUE SPACES.
+
        77  WRK-DATA                            PIC 9(6) VALUE ZEROS.
+
        77  WRK-TELEFONE                        PIC 9(9) VALUE 975591454.
+
        77  WRK-COPIA_TELEFONE                  PIC 9(9).
+
        77  WRK-SENHA                           PIC 9(8) VALUE 27455518.
       *-----------------------------------------------------------------
       *=================================================================
@@ -48,5 +52,5 @@
 
            MOVE WRK-TELEFONE TO WRK-COPIA_TELEFONE
            DISPLAY 'Copia do WRK-TELEFONE ' WRK-COPIA_TELEFONE.
-           
+
            STOP RUN.

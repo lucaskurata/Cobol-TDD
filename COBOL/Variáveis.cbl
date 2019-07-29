@@ -30,13 +30,14 @@
        WORKING-STORAGE                     SECTION.
        77  WRK-USUARIO                         PIC X(20) VALUE 'Lucas KU
       -'RATA123'.
-      
+
        77  WRK-NOME                            PIC A(12) VALUE 'Lucas Ku
       -'rata'.
+
        77  WRK-NEGATIVO                        PIC S9(3) VALUE -100.
       *77  PONTOS-FLUTUANTES                   PIC 9(2)V2 VALUE 30.75 .
-       
-       
+
+
       *-----------------------------------------------------------------
       *=================================================================
        PROCEDURE                                       DIVISION.
@@ -50,6 +51,6 @@
            DISPLAY WRK-NOME.
 
            DISPLAY WRK-NEGATIVO.
-           
+
       *    DISPLAY PONTOS-FLUTUANTES.
            STOP RUN.

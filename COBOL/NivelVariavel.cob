@@ -39,6 +39,7 @@
                03 ANO  PIC X(4) VALUE "2000".
                66 DIA-MES RENAMES DIA THRU MES.
                78 CONSTANTES VALUE "CONST".
+
        01 BOOLEANO PIC X.
            88 MASCULINO VALUE "M".
            88 FEMININO VALUE "F".
@@ -57,7 +58,7 @@
 
       *    MOVE "ALTERA_CONST" TO CONSTANTES.  NÃO É POSSÍVEL ALTERAR O 78 PORQUE ELE É UMA CONSTANTE
            SET FEMININO TO TRUE.
-           IF FEMININO 
+           IF FEMININO
                DISPLAY BOOLEANO.
-               
+
            STOP RUN.
