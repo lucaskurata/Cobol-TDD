@@ -37,6 +37,8 @@
        77  WRK-NEGATIVO                        PIC S9(3) VALUE -100.
       *77  PONTOS-FLUTUANTES                   PIC 9(2)V2 VALUE 30.75 .
 
+           COPY "working.cpy".
+
 
       *-----------------------------------------------------------------
       *=================================================================
@@ -44,9 +46,11 @@
       *=================================================================
            DISPLAY WRK-USUARIO .
 
-           DISPLAY 'OLÁ MUNDO'.
+           DISPLAY 'OLA MUNDO'.
 
-           DISPLAY WRK-TELEFONE.
+           MOVE 'X' TO ws-teste
+           MOVE 12345678910 TO WS-TESTE2
+           DISPLAY ws-teste ' ' WS-TESTE2.
 
            DISPLAY WRK-NOME.
 
