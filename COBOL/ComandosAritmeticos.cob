@@ -48,6 +48,8 @@
 
        77  WRK-RESTO_DIVISAO               PIC 9(4) VALUE ZEROS.
 
+       77  WRK-RESULTADO_MULTIPLICACAO     PIC 9(4) VALUE ZEROS.
+
       *-----------------------------------------------------------------
       *=================================================================
        PROCEDURE                                       DIVISION.
@@ -84,5 +86,9 @@
            REMAINDER WRK-RESTO_DIVISAO
            DISPLAY 'RESULTADO DA DIVISAO ' WRK-RESULTADO_DIVISAO
            DISPLAY 'RESTO DA DIVISAO ' WRK-RESTO_DIVISAO.
+
+           MULTIPLY 3 BY WRK-SALDO GIVING WRK-RESULTADO_MULTIPLICACAO
+           DISPLAY 'RESULTADO DA MULTIPLICACAO: ' WRK-RESULTADO_MULTIPLI
+      -    CACAO.
 
            STOP RUN.
