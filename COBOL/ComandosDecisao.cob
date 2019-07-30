@@ -28,28 +28,39 @@
       *-----------------------------------------------------------------
       *-----------------------------------------------------------------
        WORKING-STORAGE                     SECTION.
-       77  WRK-NUMERO                      PIC X(10) VALUE SPACES.
+       77  WRK-NUMERO                      PIC 9(5) VALUE 2468.
 
-       77  WRK-NUMERO2                     PIC X(10) VALUE SPACES.
+       77  WRK-NUMERO2                     PIC 9(5) VALUE 8642.
 
-       77  WRK-TELEFONE                    PIC 9(10) VALUE 27422216.
+       77  WRK-TELEFONE                    PIC A(5) VALUE 'ABCD'.
+
+       77  WRK-NEGATIVO                    PIC S9(3) VALUE -100.
 
       *-----------------------------------------------------------------
       *=================================================================
        PROCEDURE                                       DIVISION.
       *=================================================================
-           DISPLAY 'DIGITE O PRIMEIRO NUMERO'
-           ACCEPT WRK-NUMERO.
-           DISPLAY 'DIGITE O SEGUNDO NUMERO'
-           ACCEPT WRK-NUMERO2
-           IF WRK-NUMERO GREATER THAN WRK-NUMERO2
-               DISPLAY WRK-NUMERO ' EH MAIOR QUE ' WRK-NUMERO2
-           ELSE
-               DISPLAY WRK-NUMERO2 ' EH MAIOR QUE ' WRK-NUMERO
-           END-IF.
 
-           IF WRK-TELEFONE NOT EQUAL ZEROS
-               DISPLAY 'LIGANDO PARA A PESSOA'
+           IF WRK-NUMERO EQUAL WRK-NUMERO2
+               DISPLAY 'EH IGUAL'
+           ELSE
+               DISPLAY 'NAO EH IGUAL'
            END-IF
 
-           STOP RUN.
+           IF WRK-NUMERO2 GREATER WRK-NUMERO
+               DISPLAY WRK-NUMERO2 ' EH MAIOR'
+           IF WRK-NUMERO2 LESS WRK-NUMERO
+               DISPLAY WRK-NUMERO 'EH MAIOR'
+           END-IF.
+
+           IF WRK-NUMERO IS NUMERIC AND WRK-NUMERO2 IS NUMERIC
+               DISPLAY WRK-NUMERO ' E ' WRK-NUMERO2 ' SAO NUMERICOS'
+           END-IF.
+
+           IF WRK-NEGATIVO IS POSITIVE
+               DISPLAY WRK-NEGATIVO ' EH POSITIVO'
+           ELSE
+               DISPLAY WRK-NEGATIVO ' EH NEGATIVO'
+           END-IF.
+
+           STOP-RUN.
