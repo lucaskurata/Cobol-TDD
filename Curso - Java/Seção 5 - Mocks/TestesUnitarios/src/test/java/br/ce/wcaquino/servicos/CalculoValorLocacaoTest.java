@@ -28,12 +28,7 @@ import br.ce.wcaquino.exceptions.LocadoraException;
 @RunWith(Parameterized.class)
 public class CalculoValorLocacaoTest {
 
-	//VARIÁVEL GLOBAL
 	private LocacaoService service;
-	
-	private LocacaoDAO dao;
-	
-	private SPCService spc;
 	
 	@Parameter
 	public List<Filme> filmes;
@@ -47,9 +42,9 @@ public class CalculoValorLocacaoTest {
 	@Before
 	public void setup(){
 		service = new LocacaoService();
-		dao = Mockito.mock(LocacaoDAO.class);
+		LocacaoDAO dao = Mockito.mock(LocacaoDAO.class);
 		service.setLocacaoDAO(dao);
-		spc = Mockito.mock(SPCService.class);
+		SPCService spc = Mockito.mock(SPCService.class);
 		service.setSPCService(spc);
 	}
 	

@@ -1,6 +1,6 @@
 package br.ce.wcaquino.servicos;
 
-import br.ce.wcaquino.exceptions.LocadoraException;
+
 
 import static br.ce.wcaquino.builders.FilmeBuilder.umFilme;
 import static br.ce.wcaquino.builders.FilmeBuilder.umFilmeSemEstoque;
@@ -11,6 +11,7 @@ import static br.ce.wcaquino.matchers.MatchersProprios.ehHojeComDiferencaDias;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 import java.util.Calendar;
@@ -38,12 +39,10 @@ import buildermaster.BuilderMaster;
 
 public class LocacaoServiceTest {
 
-	//VARIÁVEL GLOBAL
 	private LocacaoService service;
 	
-	private LocacaoDAO dao;
-	
 	private SPCService spc;
+	private LocacaoDAO dao;
 	
 	@Rule
 	public ErrorCollector error = new ErrorCollector();
@@ -130,21 +129,18 @@ public class LocacaoServiceTest {
 	}
 	
 	@Test
-	public void naoDevePermitirAlugarFilmeComUsuarioNegativado() throws FilmeSemEstoqueException, LocadoraException {
-		//cenário
+	public void naoDeveAlugarFilmeParaNegativadoSPC() throws FilmeSemEstoqueException, LocadoraException{
+		//cenario
 		Usuario usuario = umUsuario().agora();
+		Usuario usuario2 = umUsuario().comNome("Usuario 2").agora();
 		List<Filme> filmes = Arrays.asList(umFilme().agora());
-		Mockito.when(spc.possuiNegativaca(usuario)).thenReturn(true);
+		
+		when(spc.possuiNegativacao(usuario)).thenReturn(true);
 		
 		exception.expect(LocadoraException.class);
-		exception.expectMessage("Usuário negativado!"); 
+		exception.expectMessage("UsuÃ¡rio Negativado");
 		
-		//ação
+		//acao
 		service.alugarFilme(usuario, filmes);
-		
-		//verificação
-		
-		
-		
 	}
 }

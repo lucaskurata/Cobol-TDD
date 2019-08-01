@@ -17,7 +17,6 @@ import br.ce.wcaquino.utils.DataUtils;
 public class LocacaoService {
 	
 	private LocacaoDAO dao;
-	
 	private SPCService spcService;
 	
 	public Locacao alugarFilme(Usuario usuario, List<Filme> filmes) throws FilmeSemEstoqueException, LocadoraException {
@@ -35,10 +34,9 @@ public class LocacaoService {
 			}
 		}
 		
-		if(spcService.possuiNegativaca(usuario)) {
-			throw new LocadoraException("Usu·rio negativado!"); 
+		if(spcService.possuiNegativacao(usuario)) {
+			throw new LocadoraException("Usu√°rio Negativado");
 		}
-		
 		
 		Locacao locacao = new Locacao();
 		locacao.setFilmes(filmes);
@@ -72,20 +70,11 @@ public class LocacaoService {
 		return locacao;
 	}
 	
-	public void notificarAtraso() {
-		List<Locacao> locacoes = dao.ob)
-	}
-	
-	private void notificarAtraso() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public void setLocacaoDAO(LocacaoDAO dao) {
 		this.dao = dao;
 	}
 	
 	public void setSPCService(SPCService spc) {
-		this.spcService = spc;
+		spcService = spc;
 	}
 }

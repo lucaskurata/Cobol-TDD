@@ -1,7 +1,7 @@
       *================================================================*
        IDENTIFICATION                                  DIVISION.
       *================================================================*
-       PROGRAM-ID. "Comandos decisao".
+       PROGRAM-ID. "AULA03".
        AUTHOR. "LUCAS KURATA".
       *================================================================*
        ENVIRONMENT                                     DIVISION.
@@ -28,50 +28,43 @@
       *-----------------------------------------------------------------
       *-----------------------------------------------------------------
        WORKING-STORAGE                     SECTION.
-       77  WRK-NUMERO                      PIC 9(5) VALUE 2468.
+       01 WRK-CADASTRO.
+           02 WRK-NOME            PIC A(15) VALUE SPACES.
+           02 WRK-IDADE           PIC 9(3)  VALUE ZEROS.
+           02 WRK-CPF             PIC 9(11) VALUE ZEROS.
+           02 WRK-ENDERECO        PIC A(20) VALUE SPACES.
 
-       77  WRK-NUMERO2                     PIC 9(5) VALUE 8642.
+       77 WRK-PERFORM             PIC 9(1)  VALUE ZEROS.
 
-       77  WRK-TELEFONE                    PIC A(5) VALUE 'ABCD'.
+       77 WRK-A                   PIC 9(2) VALUE ZEROS.
+       77 WRK-B                   PIC 9(2) VALUE ZEROS.
+       77 WRK-C                   PIC 9(2) VALUE ZEROS.
+       77 WRK-DELTA               PIC 9(3) VALUE 1.
 
-       77  WRK-NEGATIVO                    PIC S9(3) VALUE -100.
+       77 WRK-QUADRADO            PIC S9(2) VALUE 2.
 
-           COPY working.
+       77 WRK-AREA-QUADRADO       PIC 9(3) VALUE ZEROS.
 
-      *     copy "teste.cpy".
-           copy teste.
-
+       77 WRK-RAIO                PIC 9(2) VALUE ZEROS.
       *-----------------------------------------------------------------
       *=================================================================
        PROCEDURE                                       DIVISION.
       *=================================================================
+      *    MOVE 'Lucas Kurata' TO WRK-NOME
+      *    MOVE 19 TO WRK-IDADE
+      *    MOVE 50885168860 TO WRK-CPF
+      *    MOVE ' AV SOUSA BANDEIRA' TO WRK-ENDERECO
+      *    DISPLAY WRK-CADASTRO.
 
-           move 123 to ws-teste2
-           display ws-teste2.
+           ACCEPT WRK-A
+           ACCEPT WRK-B
+           ACCEPT WRK-C
 
-           move 223 to wrk-imprime
-           display wrk-imprime.
+           COMPUTE WRK-DELTA EQUAL (WRK-B * WRK-B) - (4*WRK-A*WRK-C)
+           DISPLAY 'DELTA EH: ' WRK-DELTA.
 
-           IF WRK-NUMERO EQUAL WRK-NUMERO2
-               DISPLAY 'EH IGUAL'
-           ELSE
-               DISPLAY 'NAO EH IGUAL'
-           END-IF
-
-           IF WRK-NUMERO2 GREATER WRK-NUMERO
-               DISPLAY WRK-NUMERO2 ' EH MAIOR'
-           IF WRK-NUMERO2 LESS WRK-NUMERO
-               DISPLAY WRK-NUMERO 'EH MAIOR'
-           END-IF.
-
-           IF WRK-NUMERO IS NUMERIC AND WRK-NUMERO2 IS NUMERIC
-               DISPLAY WRK-NUMERO ' E ' WRK-NUMERO2 ' SAO NUMERICOS'
-           END-IF.
-
-           IF WRK-NEGATIVO IS POSITIVE
-               DISPLAY WRK-NEGATIVO ' EH POSITIVO'
-           ELSE
-               DISPLAY WRK-NEGATIVO ' EH NEGATIVO'
-           END-IF.
+           MOVE 2 TO WRK-RAIO.
+           COMPUTE WRK-AREA-QUADRADO EQUAL 3.14*(WRK-RAIO * WRK-RAIO)
+           DISPLAY 'AREA DO CIRCULO EH: ' WRK-AREA-QUADRADO.
 
            STOP RUN.
